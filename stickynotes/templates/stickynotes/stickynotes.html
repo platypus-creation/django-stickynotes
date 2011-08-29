@@ -1,0 +1,11 @@
+{% load i18n %}
+{% if stickynotes %}
+  <ul class="stickynotes">
+    {% for stickynote in stickynotes %}
+      <li>
+        <span class="message">{{ stickynote.message|safe }}</span>
+        <a href="{{ stickynote.get_mark_as_read_url }}?next={{ request.path }}" class="close">{% trans "Close" %}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
